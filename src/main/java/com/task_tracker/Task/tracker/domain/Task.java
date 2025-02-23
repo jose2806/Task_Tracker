@@ -24,8 +24,19 @@ public class Task {
 
     public Task(@Valid TaskRegistrationData data) {
         this.description = data.descripcion();
-        this.status = data.status();
-        this.createdAt = data.createdAt();
-        this.updatedAt = data.updatedAt();
+        this.status = "TODO";
+        this.createdAt = LocalDateTime.now();
+        this.updatedAt = LocalDateTime.now();
+    }
+
+    public void updateData(@Valid TaskUpdateData data) {
+        if(data.description() != null){
+            this.description = data.description();
+            this.updatedAt = LocalDateTime.now();
+        }
+        if (data.status() != null){
+            this.status = data.status();
+            this.updatedAt = LocalDateTime.now();
+        }
     }
 }
