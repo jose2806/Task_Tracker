@@ -1,4 +1,4 @@
-package com.task_tracker.Task.tracker.domain;
+package com.task_tracker.Task.tracker.domain.Task;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;

@@ -1,4 +1,4 @@
-package com.task_tracker.Task.tracker.domain;
+package com.task_tracker.Task.tracker.domain.Task;
 
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
@@ -23,7 +23,7 @@ public class Task {
     private LocalDateTime updatedAt;
 
     public Task(@Valid TaskRegistrationData data) {
-        this.description = data.descripcion();
+        this.description = data.description();
         this.status = "TODO";
         this.createdAt = LocalDateTime.now();
         this.updatedAt = LocalDateTime.now();

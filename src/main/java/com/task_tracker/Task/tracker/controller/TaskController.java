@@ -1,10 +1,9 @@
 package com.task_tracker.Task.tracker.controller;
 
-import com.task_tracker.Task.tracker.domain.*;
+import com.task_tracker.Task.tracker.domain.Task.*;
 import jakarta.transaction.Transactional;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -43,7 +42,7 @@ public class TaskController {
                 task.getStatus(), task.getCreatedAt(), task.getUpdatedAt()));
     }
 
-    @DeleteMapping("/{id")
+    @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity deleteTask(@PathVariable Long id){
         Task task = taskRepository.getReferenceById(id);
