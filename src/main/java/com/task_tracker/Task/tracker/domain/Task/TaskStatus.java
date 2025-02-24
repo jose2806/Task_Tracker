@@ -1,4 +1,4 @@
-package com.task_tracker.Task.tracker.domain;
+package com.task_tracker.Task.tracker.domain.Task;
 
 public enum TaskStatus {
     TODO,

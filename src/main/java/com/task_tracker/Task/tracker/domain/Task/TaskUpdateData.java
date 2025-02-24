@@ -1,8 +1,6 @@
-package com.task_tracker.Task.tracker.domain;
+package com.task_tracker.Task.tracker.domain.Task;
 
 import jakarta.validation.constraints.NotNull;
-
-import java.time.LocalDateTime;
 
 public record TaskUpdateData(
         @NotNull
