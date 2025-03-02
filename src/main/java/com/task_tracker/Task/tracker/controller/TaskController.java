@@ -29,14 +29,33 @@ public class TaskController {
     }
 
     @GetMapping
-    public ResponseEntity<Page<TaskListData>> listTasks(@PageableDefault(size=3) Pageable pagination){
+    public ResponseEntity<Page<TaskListData>> listTasks(@PageableDefault(size=6) Pageable pagination){
         return ResponseEntity.ok(taskRepository.findAll(pagination).map(TaskListData::new));
     }
+
+    @GetMapping("/{id}")
+    @Transactional
+    public ResponseEntity<TaskResponseData> getTask(@PathVariable Long id){
+        Task task = taskRepository.getReferenceById(id);
+        var taskData = new TaskResponseData(task.getId(), task.getDescription(),
+                task.getStatus(), task.getCreatedAt(), task.getUpdatedAt());
+        return ResponseEntity.ok(taskData);
+    }
+
 
     @PutMapping
     @Transactional
     public ResponseEntity updateTask(@RequestBody @Valid TaskUpdateData data){
         Task task = taskRepository.getReferenceById(data.id());
+        task.updateData(data);
+        return ResponseEntity.ok(new TaskResponseData(task.getId(), task.getDescription(),
+                task.getStatus(), task.getCreatedAt(), task.getUpdatedAt()));
+    }
+
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity updateTaskById(@PathVariable Long id, @RequestBody @Valid TaskUpdateDataById data){
+        Task task = taskRepository.getReferenceById(id);
         task.updateData(data);
         return ResponseEntity.ok(new TaskResponseData(task.getId(), task.getDescription(),
                 task.getStatus(), task.getCreatedAt(), task.getUpdatedAt()));

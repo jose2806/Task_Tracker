@@ -35,12 +35,14 @@ public class TokenService {
             throw new RuntimeException("Token nulo");
         }
         DecodedJWT verifier = null;
+
         try{
             Algorithm algorithm = Algorithm.HMAC256(apiSecret);
             verifier = JWT.require(algorithm).withIssuer("Task Tracker")
                     .build().verify(token);
             return verifier.getSubject();
         } catch (RuntimeException exception){
+            System.out.println(exception.toString());
             throw new RuntimeException("Verifier invalido");
         }
     }

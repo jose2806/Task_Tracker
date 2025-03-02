@@ -39,4 +39,17 @@ public class Task {
             this.updatedAt = LocalDateTime.now();
         }
     }
+
+    public void updateData(@Valid TaskUpdateDataById data) {
+        if(data.description() != null){
+            this.description = data.description();
+            this.updatedAt = LocalDateTime.now();
+        }
+        if (data.status() != null){
+            this.status = data.status();
+            this.updatedAt = LocalDateTime.now();
+        }
+    }
+
+
 }
