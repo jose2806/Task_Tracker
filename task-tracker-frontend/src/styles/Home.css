@@ -1,0 +1,62 @@
+body, html {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  justify-content: center; 
+  align-items: center; 
+}
+
+.container {
+  padding: 1.25rem;
+  margin: auto;
+  max-width: 37.5rem;
+}
+
+.task {
+  border: 0.063rem solid #ddd;
+  padding: 0.625rem;
+  margin: 0.625rem;
+  border-radius: 0.313rem;
+
+}
+
+.task h3 {
+  margin: 0;
+  color: #f9f9f9;
+}
+
+.task p{
+  margin: 0.313rem 0;
+}
+
+.task a {
+  color: blue;
+  text-decoration: none;
+  margin-right: 0.625rem;
+}
+
+.edit-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 0.313rem 0.625rem;
+  cursor: pointer;
+  border-radius: 0.313rem;
+}
+
+.edit-btn:hover{
+  background-color: #0056b3;
+}
+
+.delete-btn{
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 0.313rem 0.625rem;
+  cursor: pointer;
+  border-radius: 0.313rem;
+}
+
+.delete-btn:hover {
+  background-color: darkred;
+}
